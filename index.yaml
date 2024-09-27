@@ -1,0 +1,60 @@
+apiVersion: v1
+entries:
+  geonode-k8s:
+  - annotations:
+      artifacthub.io/category: storage
+      artifacthub.io/license: GPL3
+      artifacthub.io/links: |
+        - name: Chart Source
+          url: https://github.com/zalf-rdm/geonode-k8s/
+        - name: Docs
+          url: https://geonode-k8s.readthedocs.io/en/latest/
+        - name: support
+          url: https://github.com/zalf-rdm/geonode-k8s/issues/
+        - name: Geonode
+          url: https://www.geonode.org/
+    apiVersion: v2
+    created: "2024-09-27T16:05:30.873761776+02:00"
+    dependencies:
+    - condition: postgres-operator.enabled
+      name: postgres-operator
+      repository: https://opensource.zalando.com/postgres-operator/charts/postgres-operator/
+      version: ~1.9.0
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: ~10.1.7
+    - condition: geonode.memcached.enabled
+      name: memcached
+      repository: https://charts.bitnami.com/bitnami
+      version: ~6.x.x
+    description: 'Helm Chart for Geonode. Supported versions: Geonode: 4.3.0, Geoserver: 2.24.3-v1, pyCSW: 2.6.1'
+    digest: facb9702f1930c369feb00faea37a4ec95d82dd421df3d896d577f5520b9c292
+    home: https://geonode.org/
+    icon: https://raw.githubusercontent.com/zalf-rdm/geonode-k8s/main/docs/img/geonode-k8s-logo.png
+    keywords:
+    - geonode
+    - geospatial
+    - geodata
+    - SDI
+    - http
+    - web
+    - python
+    - geoserver
+    - postresql
+    - postgis
+    - rabbitmq
+    - memcached
+    - django
+    maintainers:
+    - email: marcel.wallschlaeger@zalf.de
+      name: mwallschlaeger
+      url: https://github.com/mwallschlaeger
+    name: geonode-k8s
+    sources:
+    - https://github.com/zalf-rdm/geonode-k8s
+    - https://github.com/geonode/geonode
+    urls:
+    - geonode-k8s-1.2.2.tgz
+    version: 1.2.2
+generated: "2024-09-27T16:05:30.859332267+02:00"
