@@ -194,7 +194,6 @@ Helm Chart for Geonode. Supported versions: Geonode: 4.4.0, Geoserver: 2.24.4-v1
 | postgres-operator.enabled | bool | `true` | enable postgres-operator (this or postgresql.enabled NOT both ) |
 | postgres-operator.operatorApiUrl | string | `"http://{{ .Release.Name }}-postgres-operator:8080"` | ??? |
 | postgres-operator.podServiceAccount | object | `{"name":""}` | not setting the podServiceAccount name will leed to generation of this name. This allows to run multiple postgres-operators in a single kubernetes cluster. just seperating them by namespace. |
-| postgres-operator.storageClass | string | `nil` | postgress pv storageclass |
 | postgres.external.hostname | string | `"my-external-postgres.com"` |  |
 | postgres.external.port | int | `5432` |  |
 | postgres.external.secret.existingSecretName | string | `""` | name of an existing Secret to use. Set, if you want to separately maintain the Secret. |
@@ -210,6 +209,7 @@ Helm Chart for Geonode. Supported versions: Geonode: 4.4.0, Geoserver: 2.24.4-v1
 | postgres.operator.parameters.work_mem | string | `"64Mb"` |  |
 | postgres.operator.pod_name | string | `"postgresql"` | pod name for postgres containers == teamID for mainifest |
 | postgres.operator.postgres_version | int | `15` | postgres version |
+| postgres.operator.storageClass | string | `nil` | postgress pv storageclass |
 | postgres.operator.storageSize | string | `"3Gi"` | Database storage size |
 | postgres.schema | string | `"public"` | database schema |
 | postgres.type | string | `"operator"` | type of used postgres: "operator" or "external". \ if external is used, host, port and password have to be set in postgres.external using values or external secret if operator is used, host port and passwords get set automatically using postgres-operator. If your Kubernetes cluster does not have a running postgres-operator, you can install the postgres-operator with  postgres-operator.enabled = true |
